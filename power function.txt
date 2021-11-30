@@ -1,0 +1,22 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+
+        int e,result;
+        for(int i=0;i<=8;i++)
+        {
+            result=1;
+            e=i;  // i=o means e =0
+            while (e>0)
+            {
+                result*=2;
+                e--;
+
+            }
+System.out.println("2 to the  "+i+"power is "+result );
+        }
+    }
+}

@@ -1,0 +1,38 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        number<Integer> obj=new number<>(5);// for integer
+        System.out.println("Reciprocal of obj :"+obj.reciprocals());
+        System.out.println("Fractional component of obj :"+obj.fraction());
+        System.out.println();
+        number<Double> obj1=new number<>(5.25);//for double  value
+        System.out.println("Reciprocal of ob1 :"+obj1.reciprocals());
+        System.out.println("Fractional component of obj1 :"+obj1.fraction());
+
+
+
+    }
+}
+
+class number <T extends Number>
+{
+    T num;
+
+    public number(T num) {
+        this.num = num;
+    }
+
+    double reciprocals()
+    {
+      return 1/num.doubleValue();
+    }
+    double fraction()
+    {
+        return num.doubleValue()-num.intValue();
+
+    }
+
+}

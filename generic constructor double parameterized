@@ -1,0 +1,23 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        ABC obj1=new ABC("Testing", 100);
+        ABC obj2=new ABC(0, "Reversing");
+
+    }
+}
+
+class ABC
+{
+    public<T,U> ABC(T t,U u)
+    {
+        System.out.println("the value of item T :"+t);
+        System.out.println("the type  of item T :"+t.getClass().getName());
+        System.out.println("the value of item U :"+u);
+        System.out.println("the type of item U :"+u.getClass().getName());
+    }
+
+}

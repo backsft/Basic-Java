@@ -1,0 +1,36 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args)
+    {
+        generic_test<Integer> obj1=new generic_test<>(5);
+        obj1.getT();
+        System.out.println(obj1.getT());
+        System.out.println("class name "+obj1.getClass().getName());
+        generic_test<String> obj2=new generic_test<>("test is here");
+        obj2.getT();
+        System.out.println(obj2.getT());
+        System.out.println("class name "+obj2.getClass().getName());
+        generic_test<Double> obj3=new generic_test<>(8.25);
+        obj3.getT();
+        System.out.println(obj3.getT());
+        System.out.println("class name "+obj3.getClass().getName());
+    }
+}
+
+class generic_test<T>
+{
+    T t;
+
+    public generic_test(T t)
+    {
+        this.t = t;
+    }
+
+    public T getT()
+    {
+        return t;
+    }
+
+}

@@ -1,0 +1,99 @@
+// update the data from java 
+
+package com.company;
+import com.mysql.cj.jdbc.result.UpdatableResultSet;
+import com.mysql.cj.protocol.Resultset;
+import com.mysql.cj.x.protobuf.MysqlxSql;
+
+import java.sql.*;
+
+public class Main {
+
+    public static void main(String[] args) throws SQLException {
+        Connection con =null;
+        PreparedStatement ps = null;
+
+        try {
+             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "admin");
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from employee_info");
+
+            //show the data of table
+
+            while (resultSet.next()) {
+
+                System.out.println(resultSet.getString("FirstName")+
+                        " "+resultSet.getString("LastName" )+
+                        " "+resultSet.getString("Salary")+
+                        " "+resultSet.getString("MobileNo")
+                );
+            }
+
+            //update the value
+            String query= "update employee_info set FirstName=? where EmpId=?";
+            String query1= "update employee_info set LastName=? where EmpId=?";
+            String query2= "update employee_info set Salary=? where EmpId=?";
+            ps= con.prepareStatement(query);
+            ps.setString(1,"Abt");
+            ps.setInt(2, 1);
+            ps.executeUpdate();
+            ps.setString(1,"Bggg");
+            ps.setInt(2, 2);
+            ps.executeUpdate();
+            ps.setString(1,"poiiu");
+            ps.setInt(2, 7);
+            ps.executeUpdate();
+
+            // update random here
+            ps= con.prepareStatement(query1);
+            ps.setString(1,"Edison");
+            ps.setInt(2, 12);
+            ps.executeUpdate();
+            // salary update
+
+            ps= con.prepareStatement(query2);
+            ps.setString(1, String.valueOf(50000));
+            ps.setInt(2, 12);
+            ps.executeUpdate();
+
+            // mobile no update
+            String query3= "update employee_info set MobileNo=? where EmpId=?";
+            ps= con.prepareStatement(query3);
+            ps.setString(1,"+12987548");
+            ps.setInt(2, 12);
+            ps.executeUpdate();
+
+
+
+
+
+            System.out.println("Record is updated successfully......");
+
+
+
+
+            //adding rows manually
+  /*
+            int up2=statement.executeUpdate("insert into employee_info values(7,'vino','chopra','180','019215988')" );
+            int up3=statement.executeUpdate("insert into employee_info values(8,'vi','c','10','0988')" );
+            int up4=statement.executeUpdate("insert into employee_info values(9,'pri','chopra','180','019215988')" );
+            int up5=statement.executeUpdate("insert into employee_info values(10,'anna','c','10','0988')" );
+            int up6=statement.executeUpdate("insert into employee_info values(11,'arram','chopra','180','019215988')" );
+            int up7=statement.executeUpdate("insert into employee_info values(12,'acc','c5','99','025')" );
+
+            */
+
+
+            //con.close();
+
+        }
+
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+
+    }
+
+}

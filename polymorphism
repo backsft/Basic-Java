@@ -1,0 +1,33 @@
+package com.company;
+
+
+ class first{
+
+    int x=10;
+    public void check1()
+    {
+        System.out.println("this is from check1 method from class first");
+
+    }
+}
+
+class second extends first{
+     int y=20;
+     public void check2()
+     {
+         System.out.println("it's check2 method from the second class ");
+     }
+
+}
+public class Main {
+
+    public static void main(String[] args) {
+
+        second obj1=new second();
+        obj1.check1();
+        obj1.check2();
+        System.out.println(+obj1.x+obj1.y);
+
+
+    }
+}
